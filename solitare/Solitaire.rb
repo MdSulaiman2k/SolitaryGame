@@ -9,7 +9,7 @@ $cardvalue = ["A",2,3,4,5,6,7,8,9,10,"J","Q","K"]
 $app = FXApp.new
 $app.create
 def mbox(picName,caption,message)	
-	pic=File.open("C:/Users/ajith/OneDrive/Desktop/card/#{picName}.png","rb")
+	pic=File.open("C:/Users/Sulaiman/Documents/Ruby/solitare/#{picName}.png","rb")
 	pic2=FXPNGIcon.new($app, pic.read)
 	my=FXMessageBox.new($app, caption, message , pic2 , MBOX_OK,);
 	my.execute
@@ -72,6 +72,7 @@ load 'help.rb'
 
 
 #main
+
 win=false
 tabspace="\t\t\t\t\t\t\t\t\t\t\t"
 nextline=""
@@ -311,6 +312,7 @@ begin
 						break
 					end
 			   	rescue Exception => e
+                                print(e.message)
 		    		if(e.message == "")
 		    			save()
 		    			play="EXIT"
@@ -322,6 +324,7 @@ begin
 						Dir.chdir ".."
 						redo
 			    	end
+                             
 			    end
 			end
 		end
@@ -335,4 +338,5 @@ rescue Exception=>e
     if(e.message!="")
     	retry
     end
+    print(e.message)
 end
